@@ -1,6 +1,6 @@
 {
   "name": "@yavuz-yilmaz/temp-converter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny zero-dep temperature converter (C↔F↔K)",
   "license": "MIT",
   "type": "module",
