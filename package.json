@@ -1,6 +1,6 @@
 {
   "name": "@yavuz-yilmaz/temp-converter",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Tiny zero-dep temperature converter (C↔F↔K)",
   "license": "MIT",
   "type": "module",
@@ -14,14 +14,37 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "tsup src/index.ts --dts --format esm,cjs --clean && mv dist/index.js dist/index.mjs",
     "test": "vitest run",
-    "prepublishOnly": "pnpm build && pnpm test"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "dev": "tsup src/index.ts --dts --format esm,cjs --watch",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "pnpm build && pnpm test",
+    "version:patch": "npm version patch",
+    "version:minor": "npm version minor",
+    "version:major": "npm version major",
+    "size": "bundlesize || (pnpm build && ls -lh dist/)"
   },
-  "keywords": ["temperature","celsius","fahrenheit","kelvin","converter","typescript","esm","cjs"],
+  "keywords": [
+    "temperature",
+    "celsius",
+    "fahrenheit",
+    "kelvin",
+    "converter",
+    "typescript",
+    "esm",
+    "cjs"
+  ],
   "packageManager": "pnpm@10.14.0",
   "devDependencies": {
     "@types/node": "^24.3.0",
